@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE bataille_navale [
+
+<!-- Element contenant d'autre élément -->
+<!ELEMENT bataille_navale (joueur,joueur)>
+<!ELEMENT joueur (grille_attaque, grille_defense)>
+<!ELEMENT grille_attaque (case*)>
+<!ELEMENT grille_defense (bateau*,case*)>
+<!ELEMENT bateau (case+)> 
+<!ELEMENT case (coup?)>
+
+<!-- Elément contenant du texte ou autre type -->
+<!ELEMENT coup EMPTY>
+
+<!-- Elément avec attributs -->
+<!ATTLIST joueur id ID #REQUIRED>
+<!ATTLIST case X (A|B|C|D|E|F|G|H|I|J) #REQUIRED Y (1|2|3|4|5|6|7|8|9|10) #REQUIRED>
+<!ATTLIST coup type (eau|touche|coule) #REQUIRED>
+<!ATTLIST bateau type (porte-avion|cuirasse|croiseur|destroyer|ss-marin) #REQUIRED taille (1|2|3|4|5) #REQUIRED>
+
+]>
+
+<!-- 
+Les contraintes ne pouvant être gérées par le DTD sont par exemple le nombre de navires dont on dispose
+, on peut en mettre plus que 7 si l'on souhaite. Ou encore le nombre de case sur la grille, ou encore le fait
+de savoir si une case est présente qu'une seule fois sur la grille.
+-->
+
+<bataille_navale>
+	
+	<!-- JOUEUR NELSON -->
+	<joueur id="nelson">
+		<grille_attaque>
+			<case X="B" Y="5">
+				<coup type="eau"/>
+			</case>
+			
+			<case X="C" Y="5">
+				<coup type="touche"/>
+			</case>
+			
+			<case X="D" Y="2">
+				<coup type="eau"/>
+			</case>
+			
+			<case X="G" Y="4">
+				<coup type="eau"/>
+			</case>
+			
+			<case X="H" Y="5">
+				<coup type="coule"/>
+			</case>	
+		</grille_attaque>
+		
+		
+		<!-- GRILLE DEFENSE -->
+		<grille_defense>
+			<!-- BATEAU 1 -->
+			<bateau type="porte-avion" taille="5">
+				<case X="B" Y="2">
+				</case>
+				
+				<case X="B" Y="3">
+	
+				</case>
+				<case X="B" Y="4">
+	
+				</case>
+				<case X="B" Y="5">
+	
+				</case>
+				<case X="B" Y="6">
+				</case>
+			</bateau>
+			
+			<!-- BATEAU 2 -->
+			<bateau  type="ss-marin" taille="1">
+				<case X="B" Y="8"></case>
+			</bateau>
+			
+			
+			<!-- BATEAU 3 -->
+			<bateau type="ss-marin" taille="1">
+				<case X="D" Y="2"></case>
+			</bateau>
+			
+			
+			<!-- BATEAU 4 -->
+			<bateau type="croiseur" taille="3">
+				<case X="E" Y="6">
+					<coup type="touche"/>
+				</case>
+				<case X="E" Y="7"></case>
+				<case X="E" Y="8"></case>
+			</bateau>
+			
+			
+			<!-- BATEAU 5 -->
+			<bateau type="cuirasse" taille="4">
+				<case X="F" Y="2"></case>
+				<case X="G" Y="2"></case>
+				<case X="H" Y="2"></case>
+				<case X="I" Y="2"></case>
+			</bateau>
+			
+			<!-- BATEAU 6 -->
+			<bateau type="destroyer" taille="2">
+				<case X="G" Y="4">
+					<coup type="coule"/>
+				</case>
+				<case X="G" Y="5">
+					<coup type="coule"/>
+				</case>
+			</bateau>
+			
+			<!-- BATEAU 7 -->
+			<bateau type="destroyer" taille="2">
+				<case X="H" Y="8"></case>
+				<case X="I" Y="8"></case>
+			</bateau>
+			
+			<!-- CASES VIDE VISEE -->
+			<case X="C" Y="5">
+				<coup type="eau"/>
+			</case>
+			
+			<case X="E" Y="5">
+				<coup type="eau"/>
+			</case>
+		</grille_defense>
+	
+	</joueur>
+	
+	
+	<!-- JOUEUR VILLENEUVE -->
+	<joueur id="villeneuve">
+		
+		<!-- GRILLE ATTAQUE -->
+		<grille_attaque>
+			<case X="C" Y="5">
+				<coup type="eau"/>
+			</case>
+			
+			<case X="E" Y="5">
+				<coup type="eau"/>
+			</case>
+			
+			<case X="E" Y="6">
+				<coup type="touche"/>
+			</case>
+			
+			<case X="G" Y="4">
+				<coup type="coule"/>
+			</case>
+			
+			<case X="G" Y="5">
+				<coup type="coule"/>
+			</case>
+		</grille_attaque>
+	
+	
+		<!-- GRILLE DEFENSE -->
+		<grille_defense>
+			<!-- BATEAU 1 -->
+			<bateau type="ss-marin" taille="1">
+				<case X="B" Y="2"></case>
+			</bateau>
+			
+			<!-- BATEAU 2 -->
+			<bateau type="croiseur" taille="3">
+				<case X="C" Y="4"></case>
+				<case X="C" Y="5">
+					<coup type="touche"/>
+				</case>
+				<case X="C" Y="6"></case>
+			</bateau>
+			
+			<!-- BATEAU 3 -->
+			<bateau type="porte-avion" taille="5">
+				<case X="B" Y="9"></case>
+				<case X="C" Y="9"></case>
+				<case X="D" Y="9"></case>
+				<case X="E" Y="9"></case>
+				<case X="F" Y="9"></case>
+			</bateau>
+			
+			<!-- BATEAU 4 -->
+			<bateau type="cuirasse" taille="4">
+				<case X="F" Y="3"></case>
+				<case X="F" Y="4"></case>
+				<case X="F" Y="5"></case>
+				<case X="F" Y="6"></case>
+			</bateau>
+			
+			<!-- BATEAU 5 -->
+			<bateau type="ss-marin" taille="1">
+				<case X="H" Y="5">
+					<coup type="coule"/>
+				</case>
+			</bateau>
+			
+			<!-- BATEAU 6 -->
+			<bateau type="destroyer" taille="2">
+				<case X="I" Y="2"></case>
+				<case X="I" Y="3"></case>
+			</bateau>
+			
+			<!-- BATEAU 7 -->
+			<bateau type="destroyer" taille="2">
+				<case X="H" Y="9"></case>
+				<case X="I" Y="9"></case>
+			</bateau>
+			
+			
+			
+			<!-- CASE VIDE VISEE -->
+			<case X="B" Y="5">
+				<coup type="eau"/>
+			</case>
+			
+			<case X="D" Y="2">
+				<coup type="eau"/>
+			</case>
+			
+			<case X="G" Y="4">
+				<coup type="eau"/>
+			</case>
+		</grille_defense>
+	</joueur>
+
+</bataille_navale>
+
+
+
+
+<!-- 
+Question 4 :	
+	
+Les coups joués par Nelson :
+//joueur[@id="nelson"]/grille_attaque//coup
+
+Les coups au but joués par Villeneuve
+//joueur[@id="villeneuve"]/grille_attaque//coup[@type="touche" or @type="coule"]
+
+Les emplacements du porte-avion de Nelson
+//joueur[@id="nelson"]//bateau[@taille="5"]/case
+
+Les joueurs ayant joué en C5
+//grille_attaque//case[@X="C" and @Y="5"]/ancestor::joueur/@id
+
+Les bateaux de Nelson situés en C5
+//joueur[@id="nelson"]/grille_defense/bateau/case[@X="C" and @Y="5"]/parent::bateau/@type
+
+Les bateaux touchés mais non coulés de Villeneuve
+//joueur[@id="villeneuve"]/grille_defense/bateau/case/coup[@type="touche"]/ancestor::bateau/@type
+
+Les bateaux coulés de Nelson
+//joueur[@id="nelson"]/grille_defense/bateau/case/coup[@type="coule"]/ancestor::bateau/@type
+
+Les bateaux de Villeneuve présents sur les lignes B ou C
+//joueur[@id="villeneuve"]/grille_defense/bateau/case[@X="B" or @X="C"]/parent::bateau/@type
+
+Les bateaux de Nelson présents sur les lignes B ou C
+//joueur[@id="nelson"]/grille_defense/bateau/case[@X="B" or @X="C"]/parent::bateau/@type
+
+Les bateaux de Villeneuve placés sur la même ligne que l'un de ses sous—marins
+//joueur[@id="villeneuve"]//bateau/case[@X=//ancestor::bateau[@type="ss-marin"]/case/@X]/parent::bateau[@type!="ss-marin"]/@type
+
+La différence entre le nombre de coups joués par Nelson et Villeneuve
+abs(count(//joueur[@id="nelson"]/grille_attaque/case)-count(//joueur[@id="villeneuve"]/grille_attaque/case))
+-->

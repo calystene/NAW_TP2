@@ -1,0 +1,60 @@
+EXO 1
+
+//film/acteur[@nom="Depardieu"]/@prenom
+
+//film[@duree<120]/titre
+
+//categorie[@nom="Comédie"]/film/titre
+
+//categorie[@nom="Comédie"]/film[acteur/@nom="Depardieu"]/titre
+
+//film[acteur/@nom="Kassovitz" and acteur/@nom="Tautou"]/titre
+
+//categorie[film/realisateur/@nom="Spielberg"]/@nom
+
+//film[count(acteur)>3]    OU    //film/count(acteur)>3
+
+//categorie[count(film)=0]
+
+//film[@annee="2004"]/acteur[@nom="Pitt" and @prenom="Brad"]/../titre
+
+//categorie[@nom="Drame"]//acteur[@nom="Tautou"]/following-sibling::realisateur[@nom="Jeunet"]/../titre
+
+//film[realisateur/@nom=realisateur/following-sibling::realisateur/@nom]/titre
+
+
+-------------------------------------------------------------------------------------------------------------------------
+EXO 2
+
+
+//personnage[@nom="Louis IX"]/../parent::personnage/@nom
+
+//personnage[@nom="Louis IX"]/ancestor::personnage/@nom
+
+//personnage[@nom="Louis IX"]/descendance/personnage/@nom
+
+//roi[@deb<=1300 and @fin>=1300]/parent::personnage/@nom
+
+//personnage[@nom="Louis X le Hutin"]/following-sibling::personnage/@nom
+
+//roi[@deb>=1300 and @fin<1400]/parent::personnage/@nom
+
+//personnage/dates[@mort>=1250 and @mort<=1350]/../@nom
+
+//roi[empty(following-sibling::descendance)]/../@nom
+
+//personnage[exists(child::roi)]/following-sibling::personnage[exists(child::roi)]/@nom
+
+//personnage[@nom="Philippe IV le Bel"]/descendance/count(personnage)
+
+//personnage/dates[@mort=following::roi/@fin]/../@nom
+
+//personnage/abs(((child::dates/@nais)-(child::roi/@deb)))    --> Ne fonctionne pas correctement
+
+//personnage[empty(child::roi)]
+
+//personnage[empty(roi)]/descendant::personnage/roi/../@nom   --> Pas correct... après avoir retourné le problème dans tout les sens
+
+//TODO
+
+//TODO

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT genealogie (personnage*)>
+<!ELEMENT personnage (surnom?,dates,roi?,titre?,descendance?)>
+<!ELEMENT descendance (personnage*)>
+
+<!ATTLIST personnage nom CDATA #REQUIRED>
+<!ATTLIST dates nais CDATA #REQUIRED mort CDATA #IMPLIED>
+<!ATTLIST roi deb CDATA #REQUIRED fin CDATA #IMPLIED>
+
+<!ELEMENT dates (#PCDATA)>
+<!ELEMENT roi (#PCDATA)>
+<!ELEMENT titre (#PCDATA)>
+<!ELEMENT surnom (#PCDATA)>

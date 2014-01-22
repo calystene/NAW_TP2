@@ -1,0 +1,47 @@
+EXO 1
+
+videotheque/categorie/film/acteur[@nom="Depardieu"]/@prenom
+
+videotheque/categorie/film[@duree<120]/titre
+
+videotheque/categorie[@nom="Comédie"]/film/titre
+
+videotheque/categorie[@nom="Comédie"]/film[acteur/@nom="Depardieu"]/titre
+
+videotheque/categorie/film[acteur/@nom="Kassovitz" and acteur/@nom="Tautou"]/titre
+
+videotheque/categorie[film/realisateur/@nom="Spielberg"]/@nom
+
+videotheque/categorie/film[count(acteur)>3]    OU    videotheque/categorie/film/count(acteur)>3
+
+videotheque/categorie[count(film)=0]
+
+videotheque/categorie/film[@annee="2004"]/acteur[@nom="Pitt" and @prenom="Brad"]/../titre
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------
+EXO 2
+
+
+//personnage[@nom="Louis IX"]/../parent::personnage/@nom
+
+//personnage[@nom="Louis IX"]/ancestor::personnage/@nom
+
+//personnage[@nom="Louis IX"]/descendance/personnage/@nom
+
+//roi[@deb<=1300 and @fin>=1300]/parent::personnage/@nom
+
+//personnage[@nom="Louis X le Hutin"]/following-sibling::personnage/@nom
+
+//roi[@deb>=1300 and @fin<1400]/parent::personnage/@nom
+
+//personnage/dates[@mort>=1250 and @mort<=1350]/../@nom
+
+
+
+-------------------------------------------------------------------------------------------------------------------------
+EXO 3
+
+
